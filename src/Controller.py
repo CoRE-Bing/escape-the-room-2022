@@ -17,7 +17,7 @@ class Controller:
         self.hit=0
         self.blow=0
         #self.codes = ["test","temp","no","yes"]
-        self.codes = ["corevo"]
+        self.codes = ["spooky"]
         self.locks = 0
         pygame.font.init()
         #INITIAL STATE
@@ -38,10 +38,10 @@ class Controller:
         while self.state == "MENU":
             self.locksRight = pygame.transform.smoothscale(pygame.image.load('assets/locks/AllLocked.png').convert_alpha(), (384,1080))
             #BACKGROUND
-            if "corevo" not in self.codes:
-                                self.menuBG = pygame.transform.smoothscale(pygame.image.load('assets/EscapeRoomTitleScreenBlank.jpg').convert_alpha(), (self.width,self.height))
+            if "spooky" not in self.codes:
+                                self.menuBG = pygame.transform.smoothscale(pygame.image.load('assets/YOUESCAPED.jpg').convert_alpha(), (self.width,self.height))
             else:
-                self.menuBG = pygame.transform.smoothscale(pygame.image.load('assets/EscapeRoomTitleScreenBlankUnlocked.jpg').convert_alpha(), (self.width,self.height))
+                self.menuBG = pygame.transform.smoothscale(pygame.image.load('assets/TITLESCREEN.jpg').convert_alpha(), (self.width,self.height))
 
             self.screen.blit(self.menuBG, (0, 0))
             #MOUSE
@@ -73,16 +73,16 @@ class Controller:
         """This is the INPUT Loop of the Game"""
         #print("Entering the input loop...")
         rightOrWrong = 2
-        myfont = pygame.font.Font('assets/HACKED.ttf', 200)
+        myfont = pygame.font.Font('assets/youmurdererbb_reg.ttf', 200)
         answer = ""
         while self.state == "INPUT":
             #BACKGROUND
             if rightOrWrong == 2:
-                self.helpScreen = pygame.transform.smoothscale(pygame.image.load('assets/InputScreen.png').convert_alpha(), (self.width,self.height))
+                self.helpScreen = pygame.transform.smoothscale(pygame.image.load('assets/INPUTSCREEN.jpg').convert_alpha(), (self.width,self.height))
             elif rightOrWrong==1:
-                self.helpScreen = pygame.transform.smoothscale(pygame.image.load('assets/InputScreenUnlocked.png').convert_alpha(), (self.width,self.height))
+                self.helpScreen = pygame.transform.smoothscale(pygame.image.load('assets/UNLOCKED.jpg').convert_alpha(), (self.width,self.height))
             elif rightOrWrong==0:
-                self.helpScreen = pygame.transform.smoothscale(pygame.image.load('assets/InputScreenLocked.png').convert_alpha(), (self.width,self.height))
+                self.helpScreen = pygame.transform.smoothscale(pygame.image.load('assets/LOCKED.jpg').convert_alpha(), (self.width,self.height))
 
             self.screen.blit(self.helpScreen, (0, 0))
             #MOUSE
